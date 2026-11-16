@@ -1,0 +1,108 @@
+provider: llmtr
+label:
+  en_US: LLMTR
+description:
+  en_US: OpenAI-compatible AI gateway with Turkey-hosted models and global providers behind one API key, with per-key limits and usage records.
+  zh_Hans: OpenAI 兼容的 AI 网关，通过一个 API Key 提供土耳其本地托管模型和全球模型，并支持按 Key 限额与用量记录。
+icon_small:
+  en_US: icon_small.svg
+icon_large:
+  en_US: icon_large.svg
+background: "#F8FAFC"
+help:
+  title:
+    en_US: Get your API key from LLMTR
+    zh_Hans: 从 LLMTR 获取 API Key
+  url:
+    en_US: https://llmtr.com
+supported_model_types:
+  - llm
+configurate_methods:
+  - predefined-model
+  - customizable-model
+provider_credential_schema:
+  credential_form_schemas:
+    - variable: api_key
+      label:
+        en_US: API Key
+      type: secret-input
+      required: true
+      placeholder:
+        en_US: Enter your LLMTR API key
+        zh_Hans: 在此输入您的 LLMTR API Key
+model_credential_schema:
+  model:
+    label:
+      en_US: Model Name
+      zh_Hans: 模型名称
+    placeholder:
+      en_US: Enter the full model ID, e.g. anthropic/claude-sonnet-4.6
+      zh_Hans: 输入完整模型 ID，例如 anthropic/claude-sonnet-4.6
+  credential_form_schemas:
+    - variable: api_key
+      label:
+        en_US: API Key
+      type: secret-input
+      required: true
+      placeholder:
+        en_US: Enter your LLMTR API key
+        zh_Hans: 在此输入您的 LLMTR API Key
+    - variable: context_size
+      label:
+        en_US: Model context size
+        zh_Hans: 模型上下文长度
+      type: text-input
+      required: true
+      default: "128000"
+      placeholder:
+        en_US: Enter the context size
+        zh_Hans: 输入上下文长度
+    - variable: max_tokens
+      label:
+        en_US: Upper bound for max tokens
+        zh_Hans: 最大 token 上限
+      type: text-input
+      required: false
+      default: "8192"
+    - variable: function_calling_type
+      label:
+        en_US: Function calling
+        zh_Hans: 函数调用
+      type: select
+      required: false
+      default: no_call
+      options:
+        - value: no_call
+          label:
+            en_US: Not Support
+            zh_Hans: 不支持
+        - value: tool_call
+          label:
+            en_US: Support
+            zh_Hans: 支持
+    - variable: vision_support
+      label:
+        en_US: Vision Support
+        zh_Hans: 是否支持 Vision
+      type: select
+      required: false
+      default: no_support
+      options:
+        - value: support
+          label:
+            en_US: "Yes"
+            zh_Hans: 是
+        - value: no_support
+          label:
+            en_US: "No"
+            zh_Hans: 否
+models:
+  llm:
+    predefined:
+      - models/llm/*.yaml
+    position: models/llm/_position.yaml
+extra:
+  python:
+    provider_source: provider/llmtr.py
+    model_sources:
+      - models/llm/llm.py

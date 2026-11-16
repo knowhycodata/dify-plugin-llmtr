@@ -1,0 +1,8 @@
+- openai/gpt-5.4-mini
+- anthropic/claude-sonnet-4.6
+- anthropic/claude-haiku-4.5
+- google/gemini-3.5-flash
+- deepseek/deepseek-v4-pro
+- minimax/minimax-m3.1-flash
+- llmtr/qwen3-8-27b
+- llmtr/gemma-4

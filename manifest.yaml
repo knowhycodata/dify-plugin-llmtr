@@ -1,0 +1,39 @@
+version: 0.0.1
+type: plugin
+author: knowhycodata
+name: llmtr
+label:
+  en_US: LLMTR
+  zh_Hans: LLMTR
+description:
+  en_US: OpenAI-compatible AI gateway with Turkey-hosted models and global providers (OpenAI, Anthropic, Google, DeepSeek, MiniMax and more) behind one API key.
+  zh_Hans: OpenAI 兼容的 AI 网关，通过一个 API Key 提供土耳其本地托管模型以及 OpenAI、Anthropic、Google、DeepSeek、MiniMax 等全球模型。
+icon: icon_small.svg
+created_at: "2026-11-16T08:00:00Z"
+tags:
+  - other
+resource:
+  memory: 268435456
+  permission:
+    model:
+      enabled: true
+      llm: true
+plugins:
+  models:
+    - provider/llmtr.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.0.0
+privacy: PRIVACY.md
+contact: info@llmtr.com
+network:
+  domains:
+    - llmtr.com
+repo: https://github.com/knowhycodata/dify-plugin-llmtr
